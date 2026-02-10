@@ -1,6 +1,6 @@
 # Beeb's Supply Chain Game
 
-An incremental/idle game about building a dog treat empire, inspired by [Universal Paperclips](http://www.decisionproblem.com/paperclips/). You start at your kitchen table making treats by hand and grow through the real-world stages of a pet food supply chain — from selling to people on the street to Sprouts and Petco shelves.
+An incremental/idle game about building a dog treat empire, inspired by [Universal Paperclips](http://www.decisionproblem.com/paperclips/). You start at your kitchen table making treats by hand and grow through the real-world stages of a pet food supply chain — from selling to people on the street to Amazon, Sprouts, and Petco shelves.
 
 Built as a pure client-side app (HTML + CSS + vanilla JS) hosted on GitHub Pages.
 
