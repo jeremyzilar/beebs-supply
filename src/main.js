@@ -1,15 +1,21 @@
-// Threnody ---------------------------------------------------------
+// =======================================================================
+// THRENODY (ENDGAME AUDIO)
+// Handles loading and playback of the endgame music track.
+// =======================================================================
 
+// Callback fired when the threnody audio file has fully loaded
 function threnodyLoaded()
 {
     threnodyLoadedBool = true; 
 }
 
+// Begin loading the threnody audio file and attach the canplaythrough listener
 function loadThrenody(){
     threnodyAudio.src = "test.mp3";
     threnodyAudio.addEventListener('canplaythrough', threnodyLoaded);
 }
 
+// Play the threnody audio if it has finished loading
 function playThrenody(){
     if(threnodyLoadedBool)
     {
@@ -18,8 +24,12 @@ function playThrenody(){
 }
 
 
-// Wire --------------------------------------------------------
+// =======================================================================
+// WIRE SYSTEM
+// Manages wire purchasing, pricing oscillation, and the auto wire buyer.
+// =======================================================================
 
+// Sine-wave price oscillation for wire cost; gradually decreases base price over time
 function adjustWirePrice(){
     
     wirePriceTimer++;
@@ -37,6 +47,7 @@ function adjustWirePrice(){
         }
 }
 
+// Toggle the automatic wire buyer ON/OFF
 function toggleWireBuyer(){
     if (wireBuyerStatus==1){
         wireBuyerStatus=0;
@@ -47,6 +58,7 @@ function toggleWireBuyer(){
     }
 }
 
+// Purchase a spool of wire if the player has enough funds
 function buyWire(){
     if(funds >= wireCost){
         wirePriceTimer = 0;
@@ -59,7 +71,11 @@ function buyWire(){
     }
 }
 
-// QCHIPS -----------------------------------------------------------
+// =======================================================================
+// QUANTUM COMPUTING (qChips)
+// Ten photonic chip objects with sine-wave oscillators. The player clicks
+// "Compute" to harvest operations based on the current chip values.
+// =======================================================================
 
 var qChips = [];
 
@@ -143,6 +159,7 @@ var qChip9 = {
 
 qChips.push(qChip9);
 
+// Update each active chip's sine wave animation value each tick
 function quantumCompute(){
     qClock = qClock+.01;
     for (var i = 0; i<qChips.length; i++){
@@ -151,6 +168,7 @@ function quantumCompute(){
     }
 }
 
+// Player clicks "Compute" — harvest ops from all active chips based on current sine values
 function qComp(){
     
     qFade = 1;
@@ -183,6 +201,13 @@ function qComp(){
 }
  
 
+// =======================================================================
+// PROJECT MANAGEMENT
+// Checks project triggers each tick; enables/disables project buttons
+// based on whether the player can afford them.
+// =======================================================================
+
+// Iterate all projects: display newly triggered ones, enable/disable based on cost
 function manageProjects(){
     
     for(var i = 0; i < projects.length; i++){
@@ -204,6 +229,12 @@ function manageProjects(){
 }
 
 
+// =======================================================================
+// PROJECT DISPLAY
+// Creates and renders a project button in the UI project list.
+// =======================================================================
+
+// Create a project button element and append it to the project list, then blink it
 function displayProjects(project){
     
     var element = document.getElementById("projectListTop"); 
@@ -235,11 +266,18 @@ function displayProjects(project){
     
 }
 
+// =======================================================================
+// UI EFFECTS
+// Visual effects: HypnoDrone blink sequence, message console, and
+// project button blink animation.
+// =======================================================================
+
 //  HYPNODRONE EVENT ----------------------------------------------------------------
 
 document.getElementById("hypnoDroneEventDiv").style.display = "none"; 
 longBlinkCounter = 0;
 
+// Extended blink animation for the HypnoDrone event — flashes text over ~120 frames
 function longBlink(elemID){
     var e = document.getElementById(elemID);
     
@@ -282,6 +320,7 @@ function longBlink(elemID){
         
     }
 
+// Trigger the HypnoDrone animation sequence
 function hypnoDroneEvent(){
     document.getElementById("hypnoDroneText").innerHTML="Release";
     longBlink("hypnoDroneEventDiv");
@@ -290,7 +329,7 @@ function hypnoDroneEvent(){
 
 //  MESSAGES ------------------------------------------------------------------------
 
-
+// Push a new message to the 5-line scrolling console (shifts older messages down)
 function displayMessage(msg){
     document.getElementById("readout5").innerHTML=document.getElementById("readout4").innerHTML;
     document.getElementById("readout4").innerHTML=document.getElementById("readout3").innerHTML;
@@ -302,6 +341,7 @@ function displayMessage(msg){
 
 // BLINK
 
+// Flash a new project button's visibility 6 times (12 half-cycles) to draw attention
 function blink(elemID){
     var e = document.getElementById(elemID);
     
@@ -329,6 +369,14 @@ function blink(elemID){
 
 
 
+// =======================================================================
+// BUTTON UPDATE — UI STATE MACHINE
+// Massive function that controls visibility and enabled/disabled state
+// of every UI element based on current game flags and resources.
+// Called every tick from the main loop.
+// =======================================================================
+
+// Update all UI element visibility and button enabled states based on game state
 function buttonUpdate(){
     
     if (spaceFlag==0){
@@ -735,8 +783,11 @@ if (probeCombat < 1) {document.getElementById("btnLowerProbeCombat").disabled = 
 
 
 
-//----------INVESTMENTS----------------------------------------------------------------
-
+// =======================================================================
+// INVESTMENT SYSTEM
+// Stock market engine: buying/selling stocks, portfolio management,
+// deposit/withdraw funds, and periodic stock price updates.
+// =======================================================================
 
 var stocks = [];
 var alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -754,6 +805,7 @@ var stockGainThreshold = .5;
 var ledger = 0;
 var stockReportCounter = 0;
 
+// Upgrade the investment engine — increases expected profit/loss ratio; costs yomi
 function investUpgrade(){
     yomi = yomi - investUpgradeCost;
     investLevel++;
@@ -766,6 +818,7 @@ function investUpgrade(){
 }
 
 
+// Deposit all current funds into the investment bankroll
 function investDeposit(){
     ledger = ledger - Math.floor(funds);
     bankroll = Math.floor(bankroll + funds);
@@ -775,6 +828,7 @@ function investDeposit(){
     document.getElementById('portValue').innerHTML = portTotal.toLocaleString();
 }
 
+// Withdraw all bankroll funds back into available funds
 function investWithdraw(){
     ledger = ledger + bankroll;
     funds = funds + bankroll;
@@ -785,6 +839,7 @@ function investWithdraw(){
     
 }
 
+// Attempt to purchase a new stock — calculates budget based on risk level and reserves
 function stockShop(){
     var budget = Math.ceil(portTotal/riskiness);
     var r = 11 - riskiness;
@@ -811,6 +866,7 @@ function stockShop(){
     }   
 }
 
+// Create a new stock position with random symbol/price, spend from bankroll
 function createStock(dollars){
     stockID++;
     var sym = generateSymbol();
@@ -857,6 +913,7 @@ function createStock(dollars){
     
 }
 
+// Sell the oldest stock in the portfolio, return value to bankroll
 function sellStock(){
     
     bankroll = bankroll + stocks[0].total;
@@ -868,6 +925,7 @@ function sellStock(){
     }    
     
 
+// Generate a random 1-4 letter stock ticker symbol
 function generateSymbol(){
     var ltrNum = 0;
     var x = Math.random();
@@ -893,6 +951,7 @@ function generateSymbol(){
     
 }
 
+// Randomly adjust stock prices up or down based on gain threshold and risk
 function updateStocks(){
     for (var i = 0; i<portfolioSize; i++){
         
@@ -927,8 +986,7 @@ function updateStocks(){
     }
 }
 
-// Stock List Display Routine
-
+// Stock List Display Routine — updates portfolio display every 100ms
 window.setInterval(function(){
     
     if (document.getElementById("investStrat").value=="low"){
@@ -998,7 +1056,11 @@ if (portfolioSize>0 && humanFlag == 1){
     
 }, 2500);
 
-//-------------------STRATEGY-----------------------------------------------------
+// =======================================================================
+// TOURNAMENT / STRATEGY SYSTEM
+// Game-theory tournament engine: strategy objects, payoff grids,
+// round-robin matchups, and yomi reward calculation.
+// =======================================================================
 
 var tourneyCost = 1000;
 var tourneyLvl = 1;
@@ -1041,6 +1103,7 @@ var payoffGrid = {
     valueBB:0,
 }
 
+// Strategy: RANDOM — picks move 1 or 2 with equal probability
 var stratRandom = {
     name: "RANDOM",
     active: 1,
@@ -1060,6 +1123,7 @@ var stratRandom = {
 allStrats.push(stratRandom);
 strats.push(stratRandom);
 
+// Strategy: A100 — always picks move 1 (cooperate)
 var stratA100 = {
     name: "A100",
     active: 0,
@@ -1073,6 +1137,7 @@ var stratA100 = {
 
 allStrats.push(stratA100);
 
+// Strategy: B100 — always picks move 2 (defect)
 var stratB100 = {
     name: "B100",
     active: 0,
@@ -1085,6 +1150,7 @@ var stratB100 = {
 
 allStrats.push(stratB100);
 
+// Strategy: GREEDY — picks the move in the highest-payoff quadrant
 var stratGreedy = {
     name: "GREEDY",
     active: 0,
@@ -1102,6 +1168,7 @@ var stratGreedy = {
 
 allStrats.push(stratGreedy);
 
+// Strategy: GENEROUS — cooperates unless defection is clearly dominant
 var stratGenerous = {
     name: "GENEROUS",
     active: 0,
@@ -1121,6 +1188,7 @@ var stratGenerous = {
 
 allStrats.push(stratGenerous);
 
+// Strategy: MINIMAX — minimizes worst-case loss by avoiding the biggest payoff quadrant
 var stratMinimax = {
     name: "MINIMAX",
     active: 0,
@@ -1140,6 +1208,7 @@ var stratMinimax = {
 
 allStrats.push(stratMinimax);
 
+// Strategy: TIT FOR TAT — copies the opponent's previous move
 var stratTitfortat = {
     name: "TIT FOR TAT",
     active: 0,
@@ -1159,6 +1228,7 @@ var stratTitfortat = {
 
 allStrats.push(stratTitfortat);
 
+// Strategy: BEAT LAST — picks the move that would have beaten the opponent's last move
 var stratBeatlast = {
     name: "BEAT LAST",
     active: 0,
@@ -1177,6 +1247,7 @@ var vStrat = strats[0];
 
 document.getElementById("btnRunTournament").disabled = true;
 
+// Return which quadrant (1=AA, 2=AB, 3=BA, 4=BB) has the biggest payoff
 function findBiggestPayoff(){
     if (aa>=ab && aa>=ba && aa>=bb){
         return 1;
@@ -1189,6 +1260,7 @@ function findBiggestPayoff(){
     }
 }
 
+// Determine which move would have beaten the opponent's last move
 function whatBeatsLast(myPos){
     var oppsPos = 1;
     if (myPos == 1){
@@ -1229,6 +1301,7 @@ function whatBeatsLast(myPos){
     }
     
 
+// Select the horizontal and vertical strategies for a given round of the tournament
 function pickStrats(roundNum) {
     if (roundNum < strats.length) {
         h = 0;
@@ -1253,6 +1326,7 @@ function pickStrats(roundNum) {
     
 }
 
+// Generate a random 2x2 payoff grid for the current tournament
 function generateGrid(){
     payoffGrid.valueAA = Math.ceil(Math.random()*10);
     payoffGrid.valueAB = Math.ceil(Math.random()*10);
@@ -1282,6 +1356,7 @@ function generateGrid(){
 }
 
 
+// Toggle automatic tournament running ON/OFF
 function toggleAutoTourney(){
     if (autoTourneyStatus==1){
         autoTourneyStatus=0;
@@ -1293,6 +1368,7 @@ function toggleAutoTourney(){
 }
 
 
+// Initialize a new tournament: reset scores, generate grid, deduct ops cost
 function newTourney(){
     
     resultsFlag = 0;
@@ -1322,6 +1398,7 @@ function newTourney(){
     
 }
 
+// Execute the next round of the tournament, or finalize results if all rounds are done
 function runTourney(){
     document.getElementById("btnRunTournament").disabled = true;
     if (currentRound < rounds){
@@ -1337,6 +1414,7 @@ function runTourney(){
 
 
 
+// Sort strategies by score to determine the tournament winner
 function pickWinner(){
     
     results = [];
@@ -1383,6 +1461,7 @@ function pickWinner(){
 }
 
 
+// Find the score threshold for second place (first non-winning score)
 function calculatePlaceScore(){
     
     placeScore = 0;
@@ -1400,6 +1479,7 @@ function calculatePlaceScore(){
     
 }
 
+// Find the score threshold for third place (first non-placing score)
 function calculateShowScore(){
     
     showScore = 0;
@@ -1420,6 +1500,7 @@ function calculateShowScore(){
 
 
 
+// Declare the tournament winner, award yomi based on player's selected strategy placement
 function declareWinner(){
     
     if (pick<10){
@@ -1469,6 +1550,7 @@ function declareWinner(){
         
 }
     
+// Fill in the tournament results display with ranked strategy scores
 function populateTourneyReport(){
     
         for(i=0; i<results.length; i++){
@@ -1489,6 +1571,7 @@ function populateTourneyReport(){
     
 }
 
+// Switch the UI from the payoff grid to the tournament results table
 function displayTourneyReport(){
     
         resultsFlag = 1;
@@ -1502,10 +1585,12 @@ function displayTourneyReport(){
     
 }
 
+// Update the tournament status text display
 function tourneyReport($){
     document.getElementById("tourneyDisplay").innerHTML = $;
 }
 
+// On mouseover: show the payoff grid (hide results)
 function revealGrid(){
     
     if (resultsFlag == 1){
@@ -1515,6 +1600,7 @@ function revealGrid(){
     }     
 }
 
+// On mouseout: show the results table (hide payoff grid)
 function revealResults(){
     
     if (resultsFlag == 1){
@@ -1524,6 +1610,7 @@ function revealResults(){
 }
 
 
+// Calculate and apply the payoff for a single move pair, highlight the grid cell
 function calcPayoff(hm, vm){
     if (hm==1 && vm==1){
         
@@ -1562,6 +1649,7 @@ function calcPayoff(hm, vm){
 }
 
 
+// Execute a single round: setup strategies, run 10 sub-rounds with animation delays
 function round(roundNum){
     roundSetup();
     roundLoop();
@@ -1624,9 +1712,13 @@ pick = document.getElementById("stratPicker").value;
 }, 100);
 
 
-//--------------------------------------------------------------------------------
+// =======================================================================
+// CORE GAME FUNCTIONS
+// Clip production, auto-clippers, pricing, demand, trust, operations,
+// creativity, milestones, and stat display updates.
+// =======================================================================
 
-
+// Produce clips from wire — called by manual click, auto-clippers, and factories
 function clipClick(number){
     
     if (dismantle>=4){
@@ -1663,6 +1755,7 @@ function clipClick(number){
     
 }
     
+// Purchase an auto-clipper — increases clipmaker level, cost scales exponentially
 function makeClipper(){  
     if(funds >= clippperCost){
         clipmakerLevel = clipmakerLevel + 1;
@@ -1675,6 +1768,7 @@ function makeClipper(){
     
 }
 
+// Purchase a mega clipper — higher-tier auto-clipper with steeper cost curve
 function makeMegaClipper(){  
     if(funds >= megaClipperCost){
         megaClipperLevel = megaClipperLevel + 1;
@@ -1691,6 +1785,7 @@ function makeMegaClipper(){
 var maxFactoryLevel = 0;
 var maxDroneLevel = 0;
 
+// Update the display showing the next factory/drone upgrade threshold
 function updateUpgrades(){
     var nfup = 0;
     var ndup = 0;
@@ -1717,6 +1812,13 @@ function updateUpgrades(){
 }
 
 
+// =======================================================================
+// PHASE 2: FACTORY & DRONE SYSTEM
+// Build factories, harvesters, and wire drones. Manage reboot/refund
+// mechanics and drone pricing calculations.
+// =======================================================================
+
+// Build a factory — cost scales with diminishing returns at higher levels
 function makeFactory(){
     unusedClips = unusedClips - factoryCost;
     factoryBill = factoryBill + factoryCost;
@@ -1752,6 +1854,7 @@ function makeFactory(){
     document.getElementById('factoryCostDisplay').innerHTML = numberCruncher(factoryCost); 
 }
 
+// Build one or more harvesters — each harvests raw matter from the environment
 function makeHarvester(amount){
     
  for (x=0; x<amount; x++){   
@@ -1774,6 +1877,7 @@ function makeHarvester(amount){
     
 }
 
+// Build one or more wire drones — each converts acquired matter into wire
 function makeWireDrone(amount){
     
  for (x=0; x<amount; x++){   
@@ -1804,6 +1908,7 @@ var p10w = 0;
 var p100w = 0;
 var p1000w = 0;
 
+// Pre-calculate bulk purchase prices for 10x, 100x, 1000x harvesters and wire drones
 function updateDronePrices(){
     
     p10h = 0;
@@ -1850,6 +1955,7 @@ function updateDronePrices(){
         } 
 }
  
+    // Enable/disable harvester and wire drone purchase buttons based on available clips
     function updateDroneButtons(){
     
     if (unusedClips<harvesterCost){document.getElementById("btnMakeHarvester").disabled = true;
@@ -1895,6 +2001,7 @@ function updateDronePrices(){
 }
 
 
+// Reboot harvesters — reset level to 0 and refund all clips spent on them
 function harvesterReboot(){
     harvesterLevel = 0;
     unusedClips = unusedClips + harvesterBill;
@@ -1906,6 +2013,7 @@ function harvesterReboot(){
     document.getElementById('harvesterCostDisplay').innerHTML = numberCruncher(harvesterCost); 
 }
 
+// Reboot wire drones — reset level to 0 and refund all clips spent on them
 function wireDroneReboot(){
     wireDroneLevel = 0;
     unusedClips = unusedClips + wireDroneBill;
@@ -1917,6 +2025,7 @@ function wireDroneReboot(){
     document.getElementById('wireDroneCostDisplay').innerHTML = numberCruncher(wireDroneCost); 
 }
 
+// Reboot factories — reset level to 0 and refund all clips spent on them
 function factoryReboot(){
     factoryLevel = 0;
     unusedClips = unusedClips + factoryBill;
@@ -1927,11 +2036,16 @@ function factoryReboot(){
     document.getElementById('factoryCostDisplay').innerHTML = numberCruncher(factoryCost);
 }
 
-// SWARM
+// =======================================================================
+// SWARM COMPUTING
+// Manages the drone swarm: morale states (bored, disorganized, etc.),
+// gift generation, synchronization, and entertainment.
+// =======================================================================
 
 var giftBits = 0;
 var giftBitGenerationRate = 0;
 
+// Main swarm update: check boredom/disorg, generate gifts, update status display
 function updateSwarm(){
     
     
@@ -2122,6 +2236,7 @@ function updateSwarm(){
     
 }
 
+// Synchronize the swarm — spend yomi to cure disorganization
 function synchSwarm(){
         yomi = yomi - synchCost;
         document.getElementById("yomiDisplay").innerHTML = yomi.toLocaleString();
@@ -2131,6 +2246,7 @@ function synchSwarm(){
     
 }
 
+// Entertain the swarm — spend creativity to cure boredom
 function entertainSwarm(){
         creativity = creativity - entertainCost;
         entertainCost = entertainCost + 10000;
@@ -2140,7 +2256,12 @@ function entertainSwarm(){
     
 }
 
-// POWER
+// =======================================================================
+// POWER SYSTEM
+// Solar farms produce power, batteries store it. Factories and drones
+// consume power. Performance modifier (powMod) scales output when
+// demand exceeds supply.
+// =======================================================================
 
 var p10f = 0;
 var p100f = 0;
@@ -2148,6 +2269,7 @@ var p10b = 0;
 var p100b = 0;
 
 
+// Pre-calculate bulk purchase prices for 10x/100x farms and batteries
 function updatePowPrices(){
     
     p10f = 0;
@@ -2181,6 +2303,7 @@ function updatePowPrices(){
     
 }
 
+// Build one or more solar farms — each produces power for factories and drones
 function makeFarm(amount){
     
  for (x=0; x<amount; x++){    
@@ -2198,6 +2321,7 @@ function makeFarm(amount){
     
 }
 
+// Reboot farms — reset level to 0 and refund all clips spent on them
 function farmReboot(){
     farmLevel = 0;
     unusedClips = unusedClips + farmBill;
@@ -2209,6 +2333,7 @@ function farmReboot(){
     document.getElementById('farmCost').innerHTML = numberCruncher(farmCost);
 }
 
+// Build one or more batteries — each stores excess power for later use
 function makeBattery(amount){
     
  for (x=0; x<amount; x++){    
@@ -2226,6 +2351,7 @@ function makeBattery(amount){
     
 }
 
+// Reboot batteries — reset level to 0, refund clips, drain stored power
 function batteryReboot(){
     batteryLevel = 0;
     unusedClips = unusedClips + batteryBill;
@@ -2238,6 +2364,7 @@ function batteryReboot(){
     document.getElementById('batteryCost').innerHTML = numberCruncher(batteryCost);
 }
 
+// Calculate power supply vs demand, manage battery storage, update powMod performance
 function updatePower(){
     
     if (spaceFlag == 0){
@@ -2357,6 +2484,12 @@ function updatePower(){
     
 
     
+// =======================================================================
+// MARKETING & SALES
+// Ad purchasing, clip selling, and price adjustment.
+// =======================================================================
+
+// Purchase an advertising level — doubles ad cost each time
 function buyAds(){
     if(funds >= adCost){
         marketingLvl = marketingLvl +1;             
@@ -2368,6 +2501,7 @@ function buyAds(){
     }
 }
 
+// Sell clips at current margin price — called by the demand/sales system
 function sellClips(number){
     if (unsoldClips > 0) {
         if (number > unsoldClips){
@@ -2386,12 +2520,14 @@ function sellClips(number){
     } 
 }
 
+// Raise the clip sale price by $0.01
 function raisePrice(){
     margin = (Math.round((margin + .01)*100))/100;  
     document.getElementById("demand").innerHTML = demand.toFixed(2);
     document.getElementById("margin").innerHTML = margin.toFixed(2);  
 }
 
+// Lower the clip sale price by $0.01 (minimum $0.01)
 function lowerPrice(){
     if (margin >= .01){
     margin = (Math.round((margin - .01)*100))/100;
@@ -2400,6 +2536,12 @@ function lowerPrice(){
     }    
 }
 
+// =======================================================================
+// STATS & DISPLAY UPDATE
+// Refresh all UI stat displays: clips, wire, funds, demand, ops, etc.
+// =======================================================================
+
+// Update all stat displays in the UI — clips, wire, funds, demand, operations, etc.
 function updateStats(){
     
     if (wire == 1){
@@ -2471,6 +2613,7 @@ var avgSales;
 var incomeLastSecond;
 var sum;
 
+// Calculate revenue per second using a rolling 10-sample average
 function calculateRev(){
     
     incomeThen = incomeNow;
@@ -2510,6 +2653,13 @@ function calculateRev(){
     
 }
 
+// =======================================================================
+// CREATIVITY & TRUST
+// Creativity generation (when ops are maxed), trust progression via
+// fibonacci thresholds, and processor/memory allocation.
+// =======================================================================
+
+// Generate creativity points when operations are at max capacity
 function calculateCreativity(number){
     
     creativityCounter++;
@@ -2539,6 +2689,12 @@ function calculateCreativity(number){
     
 }
 
+// =======================================================================
+// PRESTIGE & CHEAT FUNCTIONS
+// Prestige bonuses that persist across resets, and debug cheat functions.
+// =======================================================================
+
+// Clear all prestige bonuses from localStorage
 function resetPrestige(){
     
     prestigeU = 0;
@@ -2548,6 +2704,7 @@ function resetPrestige(){
     
 }
 
+// Debug: increment prestige U counter
 function cheatPrestigeU(){
     
         prestigeU++;
@@ -2559,6 +2716,7 @@ function cheatPrestigeU(){
     
 }
 
+// Debug: increment prestige S counter
 function cheatPrestigeS(){
     
         prestigeS++;
@@ -2618,6 +2776,7 @@ function zeroMatter(){
     }
     
 
+// Check if clip count exceeds the fibonacci-based threshold to earn trust
 function calculateTrust(){
     if (clips>(nextTrust-1)){
         trust = trust +1;
@@ -2629,6 +2788,7 @@ function calculateTrust(){
     }
 }
 
+// Add a processor — increases operations generation rate and creativity speed
 function addProc(){
         processors=processors+1;
         creativitySpeed = Math.log10(processors) * Math.pow(processors,1.1) + processors-1;    
@@ -2643,6 +2803,7 @@ function addProc(){
     
 }
 
+// Add a memory unit — increases maximum operations capacity by 1000
 function addMem(){
         displayMessage("Memory added, max operations increased");
         memory=memory+1;
@@ -2653,6 +2814,7 @@ function addMem(){
         }
 }
 
+// Calculate operations per tick — combines standard ops and temp ops from quantum computing
 function calculateOperations(){
     
     if (tempOps > 0){
@@ -2695,6 +2857,13 @@ function calculateOperations(){
 }
 
 
+// =======================================================================
+// MILESTONES
+// Check clip count thresholds and game phase transitions to display
+// milestone messages and unlock new features.
+// =======================================================================
+
+// Check all milestone thresholds and trigger messages/unlocks as needed
 function milestoneCheck(){
     
     
@@ -2791,6 +2960,12 @@ function milestoneCheck(){
     
 }
 
+// =======================================================================
+// UTILITY FUNCTIONS
+// Number formatting (large number suffixes) and time display helpers.
+// =======================================================================
+
+// Convert tick count to human-readable time string (hours, minutes, seconds)
 function timeCruncher(t){
     var x = t/100;
     var h = Math.floor(x / 3600);
@@ -2804,6 +2979,7 @@ function timeCruncher(t){
     return hDisplay + mDisplay + sDisplay;
 }
 
+// Format large numbers with suffixes (thousand, million, billion, ... sexdecillion)
 function numberCruncher(number, decimals){
     var suffix = "";
     if (decimals == undefined){decimals = 2;}
@@ -2866,7 +3042,12 @@ function numberCruncher(number, decimals){
 }
 
 
-// PROBES
+// =======================================================================
+// PHASE 3: SPACE PROBES
+// Von Neumann probe system: design stats (speed, nav, rep, haz, fac,
+// harv, wire, combat), launching, self-replication, exploration,
+// hazard encounters, value drift, and war with drifters.
+// =======================================================================
 
 var probeSpeed = 0;
 var probeNav = 0;
@@ -2898,6 +3079,7 @@ var probeTrustCost = Math.floor(Math.pow(probeTrust+1, 1.47)*200);
 
 //var probeCost = Math.pow((probeLaunchLevel+1), 1.44)*Math.pow(10, 24);
 
+// Spend yomi to increase probe trust — expands probe design point budget
 function increaseProbeTrust(){
     yomi = yomi - probeTrustCost;
     document.getElementById('yomiDisplay').innerHTML = yomi.toLocaleString();
@@ -2908,6 +3090,7 @@ function increaseProbeTrust(){
     displayMessage("WARNING: Risk of value drift increased");
 }
 
+// Spend honor to increase max trust cap — allows more probe design points
 function increaseMaxTrust(){
     honor = honor - maxTrustCost;
     document.getElementById("honorDisplay").innerHTML = Math.round(honor).toLocaleString();
@@ -2918,89 +3101,106 @@ function increaseMaxTrust(){
     displayMessage("Maximum trust increased, probe design space expanded");
 }
 
+// Allocate one probe design point to Speed (also increases combat attack speed)
 function raiseProbeSpeed(){
     attackSpeed = attackSpeed + attackSpeedMod;
     probeSpeed++;
     document.getElementById('probeSpeedDisplay').innerHTML = probeSpeed;
 }
 
+// Deallocate one probe design point from Speed
 function lowerProbeSpeed(){
     attackSpeed = attackSpeed - attackSpeedMod;
     probeSpeed--;
     document.getElementById('probeSpeedDisplay').innerHTML = probeSpeed;
 }
 
+// Allocate one probe design point to Navigation
 function raiseProbeNav(){
     probeNav++;
     document.getElementById('probeNavDisplay').innerHTML = probeNav;
 }
 
+// Deallocate one probe design point from Navigation
 function lowerProbeNav(){
     probeNav--;
     document.getElementById('probeNavDisplay').innerHTML = probeNav;
 }
 
+// Allocate one probe design point to Hazard Remediation
 function raiseProbeHaz(){
     probeHaz++;
     document.getElementById('probeHazDisplay').innerHTML = probeHaz;
 }
 
+// Deallocate one probe design point from Hazard Remediation
 function lowerProbeHaz(){
     probeHaz--;
     document.getElementById('probeHazDisplay').innerHTML = probeHaz;
 }
 
+// Allocate one probe design point to Self-Replication
 function raiseProbeRep(){
     probeRep++;
     document.getElementById('probeRepDisplay').innerHTML = probeRep;
 }
 
+// Deallocate one probe design point from Self-Replication
 function lowerProbeRep(){
     probeRep--;
     document.getElementById('probeRepDisplay').innerHTML = probeRep;
 }
 
+// Allocate one probe design point to Factory Production
 function raiseProbeFac(){
     probeFac++;
     document.getElementById('probeFacDisplay').innerHTML = probeFac;
 }
 
+// Deallocate one probe design point from Factory Production
 function lowerProbeFac(){
     probeFac--; 
     document.getElementById('probeFacDisplay').innerHTML = probeFac;
 }
 
+// Allocate one probe design point to Harvester Drone spawning
 function raiseProbeHarv(){
     probeHarv++;
     document.getElementById('probeHarvDisplay').innerHTML = probeHarv;
 }
 
+// Deallocate one probe design point from Harvester Drone spawning
 function lowerProbeHarv(){
     probeHarv--
     document.getElementById('probeHarvDisplay').innerHTML = probeHarv;
 }
 
+// Allocate one probe design point to Wire Drone spawning
 function raiseProbeWire(){
     probeWire++;
     document.getElementById('probeWireDisplay').innerHTML = probeWire;
 }
 
+// Deallocate one probe design point from Wire Drone spawning
 function lowerProbeWire(){
     probeWire--;
     document.getElementById('probeWireDisplay').innerHTML = probeWire;
 }
 
+// Allocate one probe design point to Combat
 function raiseProbeCombat(){
     probeCombat++;
     document.getElementById('probeCombatDisplay').innerHTML = probeCombat;
 }
 
+// Deallocate one probe design point from Combat
 function lowerProbeCombat(){
     probeCombat--
     document.getElementById('probeCombatDisplay').innerHTML = probeCombat;
 }
 
 
+// Launch a new probe — deducts clips and increments probe count
 function makeProbe(){
     unusedClips = unusedClips - probeCost;
     document.getElementById("unusedClipsDisplay").innerHTML = numberCruncher(unusedClips);  
@@ -3014,6 +3214,7 @@ function makeProbe(){
     document.getElementById('probeCostDisplay').innerHTML = numberCruncher(probeCost); 
 }
 
+// Self-replicate probes based on replication stat — costs clips per new probe
 function spawnProbes(){
     var nextGen = probeCount * probeRepBaseRate * probeRep;
     
@@ -3045,6 +3246,7 @@ function spawnProbes(){
     document.getElementById('probesTotalDisplay').innerHTML = numberCruncher(probeCount);
 }   
 
+// Explore the universe — probes discover new matter based on speed and navigation stats
 function exploreUniverse(){
     document.getElementById('availableMatterDisplay').innerHTML = numberCruncher(availableMatter);
     var xRate = Math.floor(probeCount) * probeXBaseRate * probeSpeed * probeNav;
@@ -3057,6 +3259,7 @@ function exploreUniverse(){
         document.getElementById('colonizedDisplay').innerHTML = (100/(totalMatter/foundMatter)).toFixed(12);
 }  
 
+// Probes encounter hazards — lose some probes based on hazard rate vs. hazard stat
 function encounterHazards(){
     var boost = Math.pow(probeHaz, 1.6);
     var amount = probeCount * (probeHazBaseRate / ((3*boost)+1));
@@ -3084,6 +3287,7 @@ function encounterHazards(){
     }        
 }  
 
+// Probes spawn new factories in space — costs 100M clips each
 function spawnFactories(){
     var amount = probeCount * probeFacBaseRate * probeFac;
     
@@ -3097,6 +3301,7 @@ function spawnFactories(){
     document.getElementById('factoryLevelDisplay').innerHTML = numberCruncher(factoryLevel);  
 }
 
+// Probes spawn new harvesters in space — costs 2M clips each
 function spawnHarvesters(){
     var amount = probeCount * probeHarvBaseRate * probeHarv;
     
@@ -3110,6 +3315,7 @@ function spawnHarvesters(){
     document.getElementById('harvesterLevelDisplay').innerHTML = numberCruncher(harvesterLevel);  
 }
 
+// Probes spawn new wire drones in space — costs 2M clips each
 function spawnWireDrones(){
     var amount = probeCount * probeWireBaseRate * probeWire;
     
@@ -3123,6 +3329,7 @@ function spawnWireDrones(){
     document.getElementById('wireDroneLevelDisplay').innerHTML = numberCruncher(wireDroneLevel);  
 }
 
+// Value drift — some probes become drifters (lost to misalignment), scales with probe trust
 function drift(){
     var amount = probeCount * probeDriftBaseRate * Math.pow(probeTrust, 1.2);
     if (amount > probeCount) {amount = probeCount;}
@@ -3139,6 +3346,7 @@ function drift(){
     
 }
 
+// Combat system — check for and process battles against drifter probes
 function war(){
     
     checkForBattles();
@@ -3155,8 +3363,12 @@ function war(){
 
 
 
-// DRONES
+// =======================================================================
+// DRONE MATTER PROCESSING
+// Harvesters acquire raw matter, wire drones convert it to wire.
+// =======================================================================
 
+// Harvesters extract available matter based on level, power, and slider position
 function acquireMatter(){
     if (availableMatter>0) {
         var dbsth = 1;
@@ -3192,6 +3404,7 @@ function acquireMatter(){
     
     } 
 
+// Wire drones convert acquired matter into wire based on level, power, and slider
 function processMatter(){    
     if (acquiredMatter>0) {
         var dbstw = 1;
@@ -3224,7 +3437,10 @@ function processMatter(){
     }
 
 
-// CHECK FOR SAVES
+// =======================================================================
+// INITIALIZATION — CHECK FOR SAVED GAMES
+// On page load, restore saved game state and prestige from localStorage.
+// =======================================================================
 
 if (localStorage.getItem("saveGame") != null) {
     load();
@@ -3236,7 +3452,15 @@ if (localStorage.getItem("savePrestige") != null) {
 }
 
 
-// MAIN LOOP
+// ***********************************************************************
+// *                                                                     *
+// *  MAIN GAME LOOP (10ms interval)                                     *
+// *  Core game tick: milestones, UI updates, operations, trust,         *
+// *  quantum computing, stats, projects, clip rate tracking,            *
+// *  wire buying, probe functions, factory output, auto-clippers,       *
+// *  demand curve, creativity, and endgame sequence.                    *
+// *                                                                     *
+// ***********************************************************************
 
 window.setInterval(function(){
  
@@ -3597,7 +3821,13 @@ if (dismantle >= 7) {
     
 }, 10);
 
-// Slow Loop
+// ***********************************************************************
+// *                                                                     *
+// *  SLOW LOOP (100ms interval)                                         *
+// *  Wire price fluctuation, sales/demand calculation,                  *
+// *  revenue tracking, and auto-save every 25 seconds.                  *
+// *                                                                     *
+// ***********************************************************************
 
 var saveTimer = 0;
 var secTimer = 0;
@@ -3641,8 +3871,14 @@ window.setInterval(function(){
 }, 100);
      
 
-// Saving and Loading
+// =======================================================================
+// SAVING AND LOADING
+// refresh() restores all UI displays after a load. save/load functions
+// serialize/deserialize the full game state to/from localStorage.
+// Three save slots: default (auto-save), slot 1, and slot 2.
+// =======================================================================
 
+// Refresh all UI elements to match current game state (called after loading a save)
 function refresh() {
     
     
@@ -3743,6 +3979,7 @@ function refresh() {
 
 // SAVES AND LOADS
 
+// Auto-save — serialize entire game state to localStorage (default slot)
 function save() {
     
     var projectsUses = [];
@@ -4031,6 +4268,7 @@ for(var i=0; i < activeProjects.length; i++){
     
 }
 
+// Manual save — serialize entire game state to localStorage slot 1
 function save1() {
     
     var projectsUses = [];
@@ -4320,6 +4558,7 @@ for(var i=0; i < activeProjects.length; i++){
     
 }
 
+// Manual save — serialize entire game state to localStorage slot 2
 function save2() {
     
     var projectsUses = [];
@@ -4609,6 +4848,7 @@ for(var i=0; i < activeProjects.length; i++){
     
 }
 
+// Load game from default auto-save slot — restore all game state from localStorage
 function load() {
     
     var loadGame = JSON.parse(localStorage.getItem("saveGame"));
@@ -4917,6 +5157,7 @@ function load() {
     
 }
 
+// Load game from manual save slot 1
 function load1() {
     
     var loadGame = JSON.parse(localStorage.getItem("saveGame1"));
@@ -5222,6 +5463,7 @@ function load1() {
     
 }
 
+// Load game from manual save slot 2
 function load2() {
     
     var loadGame = JSON.parse(localStorage.getItem("saveGame2"));
@@ -5528,6 +5770,7 @@ function load2() {
     
 }
 
+// Reset the game — clear all saved data from localStorage and reload the page
 function reset() {
     localStorage.removeItem("saveGame");
     localStorage.removeItem("saveProjectsUses");
@@ -5537,6 +5780,7 @@ function reset() {
     location.reload();
 }
 
+// Load prestige bonuses (persist across resets) from localStorage
 function loadPrestige() {
     
         var loadPrestige = JSON.parse(localStorage.getItem("savePrestige"));

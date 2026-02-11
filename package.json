@@ -1,0 +1,19 @@
+{
+  "name": "beebs-supply",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jeremyzilar/beebs-supply.git",
+  "author": "jeremyzilar <jeremyzilar@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "concurrently \"npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch\" \"npx serve src\"",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify",
+    "serve": "npx serve src"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "concurrently": "^9.2.1",
+    "serve": "^14.2.5",
+    "tailwindcss": "^4.1.18"
+  }
+}

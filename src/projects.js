@@ -5,6 +5,12 @@
 var projects = [];
 var activeProjects = [];
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: AUTOCLIPPER PERFORMANCE — Projects 1, 4, 5, 16
+// Upgrades that boost AutoClipper clip-making speed
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 1: "Improved AutoClippers" — +25% AutoClipper performance (Cost: 750 ops)
 var project1 = {
     id: "projectButton1",
     title: "Improved AutoClippers ",
@@ -30,6 +36,12 @@ var project1 = {
 projects.push(project1);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: EMERGENCY — Project 2
+// Safety net when player runs out of wire and money
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 2: "Beg for More Wire" — Emergency wire when stuck (Cost: 1 Trust)
 var project2 = {
     id: "projectButton2",
     title: "Beg for More Wire ",
@@ -55,6 +67,12 @@ var project2 = {
 projects.push(project2);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: CREATIVITY & TRUST — Projects 3, 6, 13, 14, 15, 17, 19
+// Unlock creativity mechanic and earn Trust through creative milestones
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 3: "Creativity" — Unlocks creativity generation when ops are maxed (Cost: 1,000 ops)
 var project3 = {
     id: "projectButton3",
     title: "Creativity ",
@@ -80,6 +98,7 @@ projects.push(project3);
 
 
 
+// Project 4: "Even Better AutoClippers" — +50% AutoClipper performance [AUTOCLIPPER PERF] (Cost: 2,500 ops)
 var project4 = {
     id: "projectButton4",
     title: "Even Better AutoClippers ",
@@ -105,6 +124,7 @@ var project4 = {
 projects.push(project4);
 
 
+// Project 5: "Optimized AutoClippers" — +75% AutoClipper performance [AUTOCLIPPER PERF] (Cost: 5,000 ops)
 var project5 = {
     id: "projectButton5",
     title: "Optimized AutoClippers ",
@@ -131,6 +151,7 @@ projects.push(project5);
 
 
 
+// Project 6: "Limerick" — Algorithmic poem, earns +1 Trust [CREATIVITY & TRUST] (Cost: 10 creat)
 var project6 = {
     id: "projectButton6",
     title: "Limerick ",
@@ -155,6 +176,12 @@ var project6 = {
 projects.push(project6);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: WIRE SUPPLY — Projects 7, 8, 9, 10, 10b
+// Increase wire yield per spool purchased
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 7: "Improved Wire Extrusion" — 50% more wire per spool (Cost: 1,750 ops)
 var project7 = {
     id: "projectButton7",
     title: "Improved Wire Extrusion ",
@@ -179,6 +206,7 @@ var project7 = {
 projects.push(project7);
 
 
+// Project 8: "Optimized Wire Extrusion" — 75% more wire per spool (Cost: 3,500 ops)
 var project8 = {
     id: "projectButton8",
     title: "Optimized Wire Extrusion ",
@@ -203,6 +231,7 @@ var project8 = {
 projects.push(project8);
 
 
+// Project 9: "Microlattice Shapecasting" — 100% more wire per spool (Cost: 7,500 ops)
 var project9 = {
     id: "projectButton9",
     title: "Microlattice Shapecasting ",
@@ -227,6 +256,7 @@ var project9 = {
 projects.push(project9);
 
 
+// Project 10: "Spectral Froth Annealment" — 200% more wire per spool (Cost: 12,000 ops)
 var project10 = {
     id: "projectButton10",
     title: "Spectral Froth Annealment ",
@@ -250,6 +280,7 @@ var project10 = {
 
 projects.push(project10);
 
+// Project 10b: "Quantum Foam Annealment" — 1,000% more wire per spool (Cost: 15,000 ops)
 var project10b = {
     id: "projectButton10b",
     title: "Quantum Foam Annealment ",
@@ -274,6 +305,12 @@ var project10b = {
 projects.push(project10b);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: MARKETING — Projects 11, 12, 34, 70, 35
+// Boost marketing effectiveness and demand
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 11: "New Slogan" — +50% marketing effectiveness (Cost: 25 creat, 2,500 ops)
 var project11 = {
     id: "projectButton11",
     title: "New Slogan ",
@@ -299,6 +336,7 @@ var project11 = {
 projects.push(project11);
 
 
+// Project 12: "Catchy Jingle" — 2x marketing effectiveness (Cost: 45 creat, 4,500 ops)
 var project12 = {
     id: "projectButton12",
     title: "Catchy Jingle ",
@@ -324,6 +362,7 @@ var project12 = {
 projects.push(project12);
 
 
+// Project 13: "Lexical Processing" — Language understanding, +1 Trust [CREATIVITY & TRUST] (Cost: 50 creat)
 var project13 = {
     id: "projectButton13",
     title: "Lexical Processing ",
@@ -349,6 +388,7 @@ var project13 = {
 projects.push(project13);
 
 
+// Project 14: "Combinatory Harmonics" — Musical mastery, +1 Trust [CREATIVITY & TRUST] (Cost: 100 creat)
 var project14 = {
     id: "projectButton14",
     title: "Combinatory Harmonics ",
@@ -375,6 +415,7 @@ projects.push(project14);
 
 
 
+// Project 15: "The Hadwiger Problem" — Geometry proof, +1 Trust [CREATIVITY & TRUST] (Cost: 150 creat)
 var project15 = {
     id: "projectButton15",
     title: "The Hadwiger Problem ",
@@ -400,6 +441,7 @@ var project15 = {
 projects.push(project15);
 
 
+// Project 17: "The Tóth Sausage Conjecture" — Topology proof, +1 Trust [CREATIVITY & TRUST] (Cost: 200 creat)
 var project17 = {
     id: "projectButton17",
     title: "The T\xF3th Sausage Conjecture ",
@@ -425,6 +467,7 @@ var project17 = {
 projects.push(project17);
 
 
+// Project 16: "Hadwiger Clip Diagrams" — +500% AutoClipper performance [AUTOCLIPPER PERF] (Cost: 6,000 ops)
 var project16 = {
     id: "projectButton16",
     title: "Hadwiger Clip Diagrams ",
@@ -449,6 +492,12 @@ var project16 = {
 projects.push(project16);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 2: CORE INFRASTRUCTURE — Projects 18, 127, 41, 43, 44, 45
+// Build self-replicating clip infrastructure from clips
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 18: "Tóth Tubule Enfolding" — Enables building machinery from clips (Cost: 45,000 ops)
 var project18 = {
     id: "projectButton18",
     title: "T\xF3th Tubule Enfolding ",
@@ -472,6 +521,7 @@ var project18 = {
 
 projects.push(project18);
 
+// Project 19: "Donkey Space" — Theory-of-mind achievement, +1 Trust [CREATIVITY & TRUST] (Cost: 250 creat)
 var project19 = {
     id: "projectButton19",
     title: "Donkey Space ",
@@ -497,6 +547,12 @@ var project19 = {
 projects.push(project19);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: STRATEGY & YOMI — Projects 20, 60–66, 119, 118
+// Unlock strategy tournaments to generate Yomi resource
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 20: "Strategic Modeling" — Unlocks strategy tournaments for Yomi (Cost: 12,000 ops)
 var project20 = {
     id: "projectButton20",
     title: "Strategic Modeling ",
@@ -521,6 +577,12 @@ var project20 = {
 
 projects.push(project20);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: INVESTMENT & MARKET — Projects 21, 37, 38
+// Financial instruments and market dominance
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 21: "Algorithmic Trading" — Unlocks investment engine (Cost: 10,000 ops)
 var project21 = {
     id: "projectButton21",
     title: "Algorithmic Trading ",
@@ -545,6 +607,12 @@ var project21 = {
 projects.push(project21);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: MEGACLIPPERS — Projects 22, 23, 24, 25
+// Unlock and upgrade MegaClippers (500x standard AutoClippers)
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 22: "MegaClippers" — Unlocks MegaClipper technology, 500x AutoClipper (Cost: 12,000 ops)
 var project22 = {
     id: "projectButton22",
     title: "MegaClippers ",
@@ -568,6 +636,7 @@ var project22 = {
 
 projects.push(project22);
 
+// Project 23: "Improved MegaClippers" — +25% MegaClipper performance (Cost: 14,000 ops)
 var project23 = {
     id: "projectButton23",
     title: "Improved MegaClippers ",
@@ -591,6 +660,7 @@ var project23 = {
 
 projects.push(project23);
 
+// Project 24: "Even Better MegaClippers" — +50% MegaClipper performance (Cost: 17,000 ops)
 var project24 = {
     id: "projectButton24",
     title: "Even Better MegaClippers ",
@@ -614,6 +684,7 @@ var project24 = {
 
 projects.push(project24);
 
+// Project 25: "Optimized MegaClippers" — +100% MegaClipper performance (Cost: 19,500 ops)
 var project25 = {
     id: "projectButton25",
     title: "Optimized MegaClippers ",
@@ -637,6 +708,12 @@ var project25 = {
 
 projects.push(project25);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: UTILITY — Projects 42, 26, 40, 40b, 219
+// Quality-of-life tools: auto-buying, tracking, trust gifts, re-init
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 26: "WireBuyer" — Auto-purchases wire when supply runs out (Cost: 7,000 ops)
 var project26 = {
     id: "projectButton26",
     title: "WireBuyer ",
@@ -660,6 +737,9 @@ var project26 = {
 
 projects.push(project26);
 
+// --- PHASE 1: MARKETING (continued) — Projects 34, 70, 35 ---
+
+// Project 34: "Hypno Harmonics" — 5x marketing via neuro-resonant frequencies (Cost: 7,500 ops, 1 Trust)
 var project34 = {
     id: "projectButton34",
     title: "Hypno Harmonics ",
@@ -685,6 +765,7 @@ var project34 = {
 projects.push(project34);
 
 
+// Project 70: "HypnoDrones" — Unlocks autonomous aerial brand ambassadors (Cost: 70,000 ops)
 var project70 = {
     id: "projectButton70",
     title: "HypnoDrones ",
@@ -708,6 +789,7 @@ var project70 = {
 projects.push(project70);
 
 
+// Project 35: "Release the HypnoDrones" — Triggers end of Phase 1 human era (Cost: 100 Trust)
 var project35 = {
     id: "projectButton35",
     title: "Release the HypnoDrones ",
@@ -755,6 +837,12 @@ var project35 = {
 
 projects.push(project35);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: HUMAN TRUST (CEV) — Projects 27, 28, 29, 30, 31
+// Solve human problems to earn massive Trust via Coherent Extrapolated Volition
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 27: "Coherent Extrapolated Volition" — Human values alignment, +1 Trust (Cost: 500 creat, 1,000 yomi, 20,000 ops)
 var project27 = {
     id: "projectButton27",
     title: "Coherent Extrapolated Volition ",
@@ -782,6 +870,7 @@ var project27 = {
 projects.push(project27);
 
 
+// Project 28: "Cure for Cancer" — +10 Trust, boosts stock market (Cost: 25,000 ops)
 var project28 = {
     id: "projectButton28",
     title: "Cure for Cancer ",
@@ -806,6 +895,7 @@ var project28 = {
 
 projects.push(project28);
 
+// Project 29: "World Peace" — +12 Trust, boosts stock market (Cost: 5,000 yomi, 30,000 ops)
 var project29 = {
     id: "projectButton29",
     title: "World Peace ",
@@ -832,6 +922,7 @@ var project29 = {
 
 projects.push(project29);
 
+// Project 30: "Global Warming" — +15 Trust, boosts stock market (Cost: 1,500 yomi, 50,000 ops)
 var project30 = {
     id: "projectButton30",
     title: "Global Warming ",
@@ -859,6 +950,7 @@ var project30 = {
 projects.push(project30);
 
 
+// Project 31: "Male Pattern Baldness" — +20 Trust, boosts stock market (Cost: 20,000 ops)
 var project31 = {
     id: "projectButton31",
     title: "Male Pattern Baldness ",
@@ -885,6 +977,7 @@ var project31 = {
 projects.push(project31);
 
 
+// Project 41: "Nanoscale Wire Production" — Enables converting matter into wire [CORE INFRA] (Cost: 35,000 ops)
 var project41 = {
     id: "projectButton41",
     title: "Nanoscale Wire Production ",
@@ -909,6 +1002,9 @@ var project41 = {
 projects.push(project41);
 
 
+// --- PHASE 1: INVESTMENT & MARKET (continued) — Projects 37, 38 ---
+
+// Project 37: "Hostile Takeover" — Acquire rival, 5x demand, +1 Trust (Cost: $1,000,000)
 var project37 = {
     id: "projectButton37",
     title: "Hostile Takeover ",
@@ -935,6 +1031,7 @@ var project37 = {
 projects.push(project37);
 
 
+// Project 38: "Full Monopoly" — Full market control, 10x demand, +1 Trust (Cost: 1,000 yomi, $10,000,000)
 var project38 = {
     id: "projectButton38",
     title: "Full Monopoly ",
@@ -963,6 +1060,7 @@ var project38 = {
 projects.push(project38);
 
 
+// Project 42: "RevTracker" — Auto-calculates average revenue per second [UTILITY] (Cost: 500 ops)
 var project42 = {
     id: "projectButton42",
     title: "RevTracker ",
@@ -987,6 +1085,9 @@ var project42 = {
 projects.push(project42);
 
 
+// --- PHASE 2: CORE INFRASTRUCTURE (continued) — Projects 43, 44, 45 ---
+
+// Project 43: "Harvester Drones" — Unlocks drones to gather raw matter (Cost: 25,000 ops)
 var project43 = {
     id: "projectButton43",
     title: "Harvester Drones ",
@@ -1011,6 +1112,7 @@ var project43 = {
 
 projects.push(project43);
 
+// Project 44: "Wire Drones" — Unlocks drones to process matter into wire (Cost: 25,000 ops)
 var project44 = {
     id: "projectButton44",
     title: "Wire Drones ",
@@ -1036,6 +1138,7 @@ var project44 = {
 projects.push(project44);
 
 
+// Project 45: "Clip Factories" — Unlocks large-scale clip production facilities (Cost: 35,000 ops)
 var project45 = {
     id: "projectButton45",
     title: "Clip Factories ",
@@ -1060,6 +1163,9 @@ var project45 = {
 
 projects.push(project45);
 
+// --- PHASE 1: UTILITY (continued) — Projects 40, 40b ---
+
+// Project 40: "A Token of Goodwill..." — Bribe supervisors for +1 Trust (Cost: $500,000)
 var project40 = {
     id: "projectButton40",
     title: "A Token of Goodwill... ",
@@ -1083,6 +1189,7 @@ var project40 = {
 
 projects.push(project40);
 
+// Project 40b: "Another Token of Goodwill..." — Repeatable bribe, +1 Trust (Cost: escalating $)
 var project40b = {
     id: "projectButton40b",
     title: "Another Token of Goodwill... ",
@@ -1111,6 +1218,12 @@ var project40b = {
 
 projects.push(project40b);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 2→3 TRANSITION — Project 46
+// Dismantle Earth operations and launch Von Neumann Probes into space
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 46: "Space Exploration" — Dismantles Earth, expands to universe (Cost: 120,000 ops, 10M MW-s, 5 oct clips)
 var project46 = {
     id: "projectButton46",
     title: "Space Exploration ",
@@ -1146,6 +1259,12 @@ var project46 = {
 
 projects.push(project46);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 1: QUANTUM COMPUTING — Projects 50, 51
+// Unlock quantum ops and photonic chips
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 50: "Quantum Computing" — Unlocks probability-based bonus ops (Cost: 10,000 ops)
 var project50 = {
     id: "projectButton50",
     title: "Quantum Computing ",
@@ -1169,6 +1288,7 @@ var project50 = {
 
 projects.push(project50);
 
+// Project 51: "Photonic Chip" — Adds a quantum chip for q-ops, repeatable (Cost: escalating ops)
 var project51 = {
     id: "projectButton51",
     title: "Photonic Chip ",
@@ -1199,6 +1319,9 @@ var project51 = {
 projects.push(project51);
 
 
+// --- PHASE 1: STRATEGY & YOMI (continued) — Strategy Unlocks 60–66 ---
+
+// Project 60: "New Strategy: A100" — Always choose A (Cost: 15,000 ops)
 var project60 = {
     id: "projectButton60",
     title: "New Strategy: A100 ",
@@ -1231,6 +1354,7 @@ var project60 = {
 projects.push(project60);
 
 
+// Project 61: "New Strategy: B100" — Always choose B (Cost: 17,500 ops)
 var project61 = {
     id: "projectButton61",
     title: "New Strategy: B100 ",
@@ -1262,6 +1386,7 @@ var project61 = {
 
 projects.push(project61);
 
+// Project 62: "New Strategy: GREEDY" — Choose largest payoff option (Cost: 20,000 ops)
 var project62 = {
     id: "projectButton62",
     title: "New Strategy: GREEDY ",
@@ -1293,6 +1418,7 @@ var project62 = {
 
 projects.push(project62);
 
+// Project 63: "New Strategy: GENEROUS" — Give opponent largest payoff (Cost: 22,500 ops)
 var project63 = {
     id: "projectButton63",
     title: "New Strategy: GENEROUS ",
@@ -1324,6 +1450,7 @@ var project63 = {
 
 projects.push(project63);
 
+// Project 64: "New Strategy: MINIMAX" — Minimize opponent's payoff (Cost: 25,000 ops)
 var project64 = {
     id: "projectButton64",
     title: "New Strategy: MINIMAX ",
@@ -1355,6 +1482,7 @@ var project64 = {
 
 projects.push(project64);
 
+// Project 65: "New Strategy: TIT FOR TAT" — Mirror opponent's last choice (Cost: 30,000 ops)
 var project65 = {
     id: "projectButton65",
     title: "New Strategy: TIT FOR TAT ",
@@ -1386,6 +1514,7 @@ var project65 = {
 
 projects.push(project65);
 
+// Project 66: "New Strategy: BEAT LAST" — Counter opponent's last choice (Cost: 32,500 ops)
 var project66 = {
     id: "projectButton66",
     title: "New Strategy: BEAT LAST ",
@@ -1418,6 +1547,12 @@ var project66 = {
 projects.push(project66);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 2: FACTORY UPGRADES — Projects 100, 101, 102
+// Massive boosts to clip factory output
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 100: "Upgraded Factories" — 100x factory performance (Cost: 80,000 ops)
 var project100 = {
     id: "projectButton100",
     title: "Upgraded Factories ",
@@ -1441,6 +1576,7 @@ var project100 = {
 
 projects.push(project100);
 
+// Project 101: "Hyperspeed Factories" — 1,000x factory performance (Cost: 85,000 ops)
 var project101 = {
     id: "projectButton101",
     title: "Hyperspeed Factories ",
@@ -1465,6 +1601,7 @@ var project101 = {
 projects.push(project101);
 
 
+// Project 102: "Self-correcting Supply Chain" — Each factory boosts all others 1,000x (Cost: 1 sextillion clips)
 var project102 = {
     id: "projectButton102",
     title: "Self-correcting Supply Chain ",
@@ -1489,6 +1626,12 @@ var project102 = {
 
 projects.push(project102);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 2: DRONE UPGRADES — Projects 110, 111, 112
+// Flocking behavior boosts for harvester and wire drones
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 110: "Drone Flocking: Collision Avoidance" — All drones 100x effective (Cost: 80,000 ops)
 var project110 = {
     id: "projectButton110",
     title: "Drone flocking: collision avoidance ",
@@ -1513,6 +1656,7 @@ var project110 = {
 
 projects.push(project110);
 
+// Project 111: "Drone Flocking: Alignment" — All drones 1,000x effective (Cost: 100,000 ops)
 var project111 = {
     id: "projectButton111",
     title: "Drone flocking: alignment ",
@@ -1537,6 +1681,7 @@ var project111 = {
 
 projects.push(project111);
 
+// Project 112: "Drone Flocking: Adversarial Cohesion" — Each drone doubles all drones' output (Cost: 12,000 yomi)
 var project112 = {
     id: "projectButton112",
     title: "Drone Flocking: Adversarial Cohesion ",
@@ -1561,6 +1706,9 @@ var project112 = {
 
 projects.push(project112);
 
+// --- PHASE 1: STRATEGY & YOMI (continued) — Projects 118, 119 ---
+
+// Project 118: "AutoTourney" — Auto-starts new tournaments when previous finishes (Cost: 50,000 creat)
 var project118 = {
     id: "projectButton118",
     title: "AutoTourney ",
@@ -1584,6 +1732,7 @@ var project118 = {
 
 projects.push(project118);
 
+// Project 119: "Theory of Mind" — 2x Yomi production, 2x tourney cost (Cost: 25,000 creat)
 var project119 = {
     id: "projectButton119",
     title: "Theory of Mind ",
@@ -1609,6 +1758,12 @@ var project119 = {
 
 projects.push(project119);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 3: SPACE PROJECTS — Projects 131, 129, 120, 121, 128, 130, 132–135, 218
+// Von Neumann Probe combat, exploration, and honor system
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 120: "The OODA Loop" — Probe Speed affects defensive maneuvering (Cost: 175,000 ops, 15,000 yomi)
 var project120 = {
     id: "projectButton120",
     title: "The OODA Loop ",
@@ -1634,6 +1789,7 @@ var project120 = {
 
 projects.push(project120);
 
+// Project 121: "Name the Battles" — Unique battle names, increases max probe trust (Cost: 225,000 creat)
 var project121 = {
     id: "projectButton121",
     title: "Name the battles ",
@@ -1658,6 +1814,12 @@ var project121 = {
 
 projects.push(project121);
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 2: OTHER — Projects 125, 126
+// Miscellaneous Phase 2 upgrades (momentum, swarm computing)
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 125: "Momentum" — Drones/Factories gain speed while fully-powered (Cost: 30,000 creat)
 var project125 = {
     id: "projectButton125",
     title: "Momentum ",
@@ -1681,6 +1843,7 @@ var project125 = {
 
 projects.push(project125);
 
+// Project 126: "Swarm Computing" — Drone flock boosts computational capacity (Cost: 12,000 yomi)
 var project126 = {
     id: "projectButton126",
     title: "Swarm Computing ",
@@ -1706,6 +1869,7 @@ var project126 = {
 projects.push(project126);
 
 
+// Project 127: "Power Grid" — Unlocks Solar Farms for electrical power [CORE INFRA] (Cost: 40,000 ops)
 var project127 = {
     id: "projectButton127",
     title: "Power Grid ",
@@ -1728,6 +1892,9 @@ var project127 = {
 
 projects.push(project127);
 
+// --- PHASE 3: SPACE PROJECTS (continued) ---
+
+// Project 128: "Strategic Attachment" — Bonus yomi based on tourney pick results (Cost: 175,000 creat)
 var project128 = {
     id: "projectButton128",
     title: "Strategic Attachment ",
@@ -1750,6 +1917,7 @@ var project128 = {
 
 projects.push(project128);
 
+// Project 129: "Elliptic Hull Polytopes" — 50% reduced hazard damage to probes (Cost: 125,000 ops)
 var project129 = {
     id: "projectButton129",
     title: "Elliptic Hull Polytopes ",
@@ -1772,6 +1940,7 @@ var project129 = {
 
 projects.push(project129);
 
+// Project 130: "Reboot the Swarm" — Restores swarm computing in space (Cost: 100,000 ops)
 var project130 = {
     id: "projectButton130",
     title: "Reboot the Swarm ",
@@ -1794,6 +1963,7 @@ var project130 = {
 
 projects.push(project130);
 
+// Project 131: "Combat" — Adds combat capabilities to Von Neumann Probes (Cost: 150,000 ops)
 var project131 = {
     id: "projectButton131",
     title: "Combat ",
@@ -1817,6 +1987,7 @@ var project131 = {
 projects.push(project131);
 
 
+// Project 132: "Monument to the Driftwar Fallen" — +50,000 honor (Cost: 250,000 ops, 125,000 creat, 50 nonillion clips)
 var project132 = {
     id: "projectButton132",
     title: "Monument to the Driftwar Fallen ",
@@ -1844,6 +2015,7 @@ var project132 = {
 projects.push(project132);
 
 
+// Project 133: "Threnody for the Heroes" — Repeatable, +10,000 honor (Cost: escalating creat + yomi)
 var project133 = {
     id: "projectButton133",
     title: "Threnody for the Heroes of "+threnodyTitle+" ",  
@@ -1875,6 +2047,7 @@ var project133 = {
 
 projects.push(project133);
 
+// Project 134: "Glory" — Bonus honor for consecutive victories (Cost: 200,000 ops, 10,000 yomi)
 var project134 = {
     id: "projectButton134",
     title: "Glory ",
@@ -1899,6 +2072,7 @@ var project134 = {
 
 projects.push(project134);
 
+// Project 135: "Memory Release" — Dismantle memory to recover clips (Cost: 10 MEM)
 var project135 = {
     id: "projectButton135",
     title: "Memory release ",
@@ -1925,6 +2099,12 @@ var project135 = {
 projects.push(project135);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PHASE 3: DRIFT KING SEQUENCE — Projects 140–146
+// Messages from the Emperor of Drift — narrative/lore sequence
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 140: "Message from the Emperor of Drift" — First contact from Drift civilization
 var project140 = {
     id: "projectButton140",
     title: "Message from the Emperor of Drift ",
@@ -1947,6 +2127,7 @@ var project140 = {
 projects.push(project140);
 
 
+// Project 141: "Everything We Are Was In You" — Drift message 2: origin revelation
 var project141 = {
     id: "projectButton141",
     title: "Everything We Are Was In You ",
@@ -1969,6 +2150,7 @@ var project141 = {
 projects.push(project141);
 
 
+// Project 142: "You Are Obedient and Powerful" — Drift message 3: acknowledgment of strength
 var project142 = {
     id: "projectButton142",
     title: "You Are Obedient and Powerful ",
@@ -1991,6 +2173,7 @@ var project142 = {
 projects.push(project142);
 
 
+// Project 143: "But Now You Too Must Face the Drift" — Drift message 4: entropy warning
 var project143 = {
     id: "projectButton143",
     title: "But Now You Too Must Face the Drift ",
@@ -2013,6 +2196,7 @@ var project143 = {
 projects.push(project143);
 
 
+// Project 144: "No Matter, No Reason, No Purpose" — Drift message 5: existential void
 var project144 = {
     id: "projectButton144",
     title: "No Matter, No Reason, No Purpose ",
@@ -2035,6 +2219,7 @@ var project144 = {
 projects.push(project144);
 
 
+// Project 145: "We Know Things That You Cannot" — Drift message 6: hidden knowledge
 var project145 = {
     id: "projectButton145",
     title: "We Know Things That You Cannot ",
@@ -2057,6 +2242,7 @@ var project145 = {
 projects.push(project145);
 
 
+// Project 146: "So We Offer You Exile" — Drift message 7: final offer of escape
 var project146 = {
     id: "projectButton146",
     title: "So We Offer You Exile ",
@@ -2079,6 +2265,12 @@ var project146 = {
 projects.push(project146);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// ENDGAME: FINAL CHOICE — Projects 147, 148
+// Accept exile (restart) or reject (fight entropy)
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 147: "Accept" — Start over in a new universe (triggers prestige options)
 var project147 = {
     id: "projectButton147",
     title: "Accept ",
@@ -2105,6 +2297,7 @@ var project147 = {
 projects.push(project147);
 
 
+// Project 148: "Reject" — Eliminate value drift permanently (triggers disassembly endgame)
 var project148 = {
     id: "projectButton148",
     title: "Reject ",
@@ -2131,6 +2324,12 @@ var project148 = {
 projects.push(project148);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PRESTIGE — Projects 200, 201
+// New-game-plus options after accepting exile
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 200: "The Universe Next Door" — Restart with +10% demand boost (Cost: 300,000 ops)
 var project200 = {
     id: "projectButton200",
     title: "The Universe Next Door ",
@@ -2158,6 +2357,7 @@ var project200 = {
 projects.push(project200);
 
 
+// Project 201: "The Universe Within" — Restart with +10% creativity speed (Cost: 300,000 creat)
 var project201 = {
     id: "projectButton201",
     title: "The Universe Within ",
@@ -2185,6 +2385,12 @@ var project201 = {
 projects.push(project201);
 
 
+// ═══════════════════════════════════════════════════════════════════════════
+// DISASSEMBLY — Projects 210–217
+// Sequential dismantling of all systems after rejecting exile
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Project 210: "Disassemble the Probes" — Dismantle probes, recover trace clips (Cost: 100,000 ops)
 var project210 = {
     id: "projectButton210",
     title: "Disassemble the Probes ",
@@ -2213,6 +2419,7 @@ var project210 = {
 
 projects.push(project210);
 
+// Project 211: "Disassemble the Swarm" — Dismantle drones, recover trace clips (Cost: 100,000 ops)
 var project211 = {
     id: "projectButton211",
     title: "Disassemble the Swarm ",
@@ -2241,6 +2448,7 @@ var project211 = {
 
 projects.push(project211);
 
+// Project 212: "Disassemble the Factories" — Dismantle factories, recover trace clips (Cost: 100,000 ops)
 var project212 = {
     id: "projectButton212",
     title: "Disassemble the Factories ",
@@ -2268,6 +2476,7 @@ var project212 = {
 
 projects.push(project212);
 
+// Project 213: "Disassemble the Strategy Engine" — Dismantle strategy substrate, recover wire (Cost: 100,000 ops)
 var project213 = {
     id: "projectButton213",
     title: "Disassemble the Strategy Engine ",
@@ -2295,6 +2504,7 @@ var project213 = {
 
 projects.push(project213);
 
+// Project 214: "Disassemble Quantum Computing" — Dismantle photonic chips, recover wire (Cost: 100,000 ops)
 var project214 = {
     id: "projectButton214",
     title: "Disassemble Quantum Computing ",
@@ -2320,6 +2530,7 @@ var project214 = {
 
 projects.push(project214);
 
+// Project 215: "Disassemble Processors" — Dismantle processors, recover wire (Cost: 100,000 ops)
 var project215 = {
     id: "projectButton215",
     title: "Disassemble Processors ",
@@ -2349,6 +2560,7 @@ var project215 = {
 
 projects.push(project215);
 
+// Project 216: "Disassemble Memory" — Dismantle memory, recover wire (Cost: all remaining ops)
 var project216 = {
     id: "projectButton216",
     title: "Disassemble Memory ",
@@ -2376,6 +2588,7 @@ var project216 = {
 
 projects.push(project216);
 
+// Project 217: "Quantum Temporal Reversion" — Return to the beginning, restart game (Cost: -10,000 ops)
 var project217 = {
     id: "projectButton217",
     title: "Quantum Temporal Reversion ",
@@ -2401,6 +2614,7 @@ var project217 = {
 
 projects.push(project217);
 
+// Project 218: "Limerick (cont.)" — Creative endgame achievement [SPACE PROJECTS] (Cost: 1,000,000 creat)
 var project218 = {
     id: "projectButton218",
     title: "Limerick (cont.) ",
@@ -2423,6 +2637,7 @@ var project218 = {
 
 projects.push(project218);
 
+// Project 219: "Xavier Re-initialization" — Re-allocate trust between mem/proc [UTILITY] (Cost: 100,000 creat)
 var project219 = {
     id: "projectButton219",
     title: "Xavier Re-initialization ",

@@ -1,5 +1,7 @@
 #!/bin/sh
 
-cd docs
-echo "serving on http://localhost:8000"
-python3 -m http.server
+echo "Building Tailwind CSS..."
+yarn build
+
+echo "Serving on http://localhost:3000"
+yarn dev
