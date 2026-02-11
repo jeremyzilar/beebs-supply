@@ -296,3 +296,4 @@ var threnodyLoadedBool = false;
 
 var x = 0; // Unused/general purpose variable
 var blinkCounter = 0; // UI blink animation counter
+var gamePaused = false; // When true, all game loops skip their tick
