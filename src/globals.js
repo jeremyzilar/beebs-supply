@@ -46,6 +46,7 @@ var clipsSold = 0; // Lifetime clips sold
 var avgRev = 0; // Average revenue per second
 var income = 0; // Cumulative income tracker
 var incomeTracker = [0]; // Rolling array of per-second income (last 10 values)
+var ticks = 0; // Main loop tick counter (10ms per tick; 100 ticks = 1 second)
 var transaction = 1; // Last sale transaction amount
 var marketing = 1; // Marketing multiplier: 1.1^(marketingLvl-1)
 var marketingLvl = 1; // Marketing level purchased
